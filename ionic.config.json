@@ -1,0 +1,7 @@
+{
+  "name": "gamification",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
