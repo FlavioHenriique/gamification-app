@@ -13,6 +13,7 @@ const TOKEN_KEY = 'token';
 })
 export class AuthenticationService {
   isAuthenticated: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  USUARIO_LOGADO: BehaviorSubject<any> = new BehaviorSubject<any>(false);
   token= '';
   
   constructor(private httpClient: HttpClient, private storage: Storage) {
@@ -38,9 +39,7 @@ export class AuthenticationService {
        + credentials.email + "&senha=" + credentials.password;
     return this.httpClient.get(url).pipe(
       map(async(res) =>{
-        console.log("retorno 200: " + res);
-        this.isAuthenticated.next(true);        
-        return res;
+        this.USUARIO_LOGADO.next(res);
       },
       async(res) =>{      
         this.isAuthenticated.next(false);
@@ -53,6 +52,10 @@ export class AuthenticationService {
      this.isAuthenticated.next(false);
      //return Storage.remove({key: TOKEN_KEY});
      return this.storage.remove(TOKEN_KEY);
+   }
+
+   getUsuarioLogado(): any{
+      return this.USUARIO_LOGADO.value;
    }
 
 }

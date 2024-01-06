@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AlertController, LoadingController } from '@ionic/angular';
+import { take } from 'rxjs';
 import { AuthenticationService } from 'src/app/services/authentication.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-login',
@@ -31,11 +33,17 @@ export class LoginPage implements OnInit {
     const loading = await this.loadingController.create();
     await loading.present();
 
-    this.authService.login(this.credentials.value).subscribe(
-      async(res) =>{
-      
-        await loading.dismiss();
-        this.router.navigateByUrl('/tabs', {replaceUrl: true});
+    this.authService.login(this.credentials.value)
+    .pipe(take(1))
+    .subscribe(
+      async(res) =>{        
+        await loading.dismiss();        
+        if (this.authService.getUsuarioLogado().visualizouPrimeiraPagina){
+          this.router.navigateByUrl('/tabs', {replaceUrl: true});
+        }else{
+          this.router.navigateByUrl('/apresentacao', {replaceUrl: true});
+        }
+        
       },
       async(res) =>{
     
@@ -47,7 +55,7 @@ export class LoginPage implements OnInit {
         });
         await alert.present();
       }
-    )
+    );
   }
 
   cadastro(){
