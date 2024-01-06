@@ -33,12 +33,12 @@ export class LoginPage implements OnInit {
 
     this.authService.login(this.credentials.value).subscribe(
       async(res) =>{
-        console.log("logou");
+      
         await loading.dismiss();
         this.router.navigateByUrl('/tabs', {replaceUrl: true});
       },
       async(res) =>{
-        console.log(res);
+    
         await loading.dismiss();
         const alert = await this.alertController.create({
           header: 'Erro',
@@ -48,6 +48,10 @@ export class LoginPage implements OnInit {
         await alert.present();
       }
     )
+  }
+
+  cadastro(){
+    this.router.navigateByUrl('/cadastro', {replaceUrl: true});
   }
 
 }
