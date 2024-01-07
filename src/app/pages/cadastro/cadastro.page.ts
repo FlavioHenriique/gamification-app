@@ -35,8 +35,7 @@ export class CadastroPage implements OnInit {
     await loading.present();
     console.log(this.dadosCadastro.value.usuario);
     this.usuarioService.cadastroUsuario(this.dadosCadastro.value).subscribe(
-      async(res) =>{
-        console.log(res);
+      async(res) =>{      
         loading.dismiss();
 
         const alert = await this.alertController.create({
