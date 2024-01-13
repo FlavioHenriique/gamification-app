@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthenticationService } from '../services/authentication.service';
 
 @Component({
   selector: 'app-tabs',
@@ -7,6 +9,12 @@ import { Component } from '@angular/core';
 })
 export class TabsPage {
 
-  constructor() {}
+  constructor(private router: Router,
+    private authService: AuthenticationService) {}
 
+
+  sair(){
+      this.authService.apagaUsuarioLogado();
+      this.router.navigateByUrl("/login", {replaceUrl:true});
+  }
 }

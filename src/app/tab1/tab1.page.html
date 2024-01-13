@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      Status
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -13,5 +13,14 @@
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <ion-img class="flex-content"
+  src="../../../assets/images/student_status.jpeg"></ion-img>
+
+  <br><br>
+
+  <div class="espacamento">    
+    
+      <ion-button (click)="listaInsignias()">Insígnias ({{usuario.insigniasConquistadas.length}}/15)</ion-button>    
+  </div>
+ 
 </ion-content>

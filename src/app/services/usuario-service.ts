@@ -10,7 +10,7 @@ export class UsuarioService {
 
   constructor(private httpClient: HttpClient) { }
 
-  cadastroUsuario(dadosCadastro: {nome, email, senha, usuario}): Observable<any>{
+  cadastroUsuario(dadosCadastro: {nome, email, senha, usuario, visua}): Observable<any>{
     var url = environment.URL_BASE + "/usuario";
 
     return this.httpClient.post(url, dadosCadastro).pipe(

@@ -4,6 +4,7 @@ import { Plugins } from '@capacitor/core';
 import { Storage } from '@ionic/storage-angular';
 import { BehaviorSubject, from, map, Observable, throwError} from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { Usuario } from '../entity/Usuario';
 const TOKEN_KEY = 'token';
 
 
@@ -13,7 +14,7 @@ const TOKEN_KEY = 'token';
 })
 export class AuthenticationService {
   isAuthenticated: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
-  USUARIO_LOGADO: BehaviorSubject<any> = new BehaviorSubject<any>(false);
+  USUARIO_LOGADO: BehaviorSubject<Usuario> = new BehaviorSubject<Usuario>(null);
   token= '';
   
   constructor(private httpClient: HttpClient, private storage: Storage) {
@@ -37,7 +38,7 @@ export class AuthenticationService {
    login(credentials: {email, password}): Observable<any>{
     var url = environment.URL_BASE + "/usuario/login?email=" 
        + credentials.email + "&senha=" + credentials.password;
-    return this.httpClient.get(url).pipe(
+    return this.httpClient.get<Usuario>(url).pipe(
       map(async(res) =>{
         this.USUARIO_LOGADO.next(res);
       },
@@ -56,6 +57,10 @@ export class AuthenticationService {
 
    getUsuarioLogado(): any{
       return this.USUARIO_LOGADO.value;
+   }
+
+   apagaUsuarioLogado(){
+    this.USUARIO_LOGADO.next(null);
    }
 
 }
