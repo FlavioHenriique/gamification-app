@@ -23,12 +23,17 @@ public class MainActivity extends AppCompatActivity {
     private Button btLogin;
     private EditText edtEmail;
     private EditText edtSenha;
+    private boolean teste = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
         btLogin = findViewById(R.id.btLogin);
+        edtSenha = findViewById(R.id.edtSenha);
+        edtEmail = findViewById(R.id.edtEmail);
+        edtSenha.setText("flavio");
+        edtEmail.setText("flavio@gmail.com");
         btLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

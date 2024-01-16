@@ -3,6 +3,7 @@ package io.github.gamification.activity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
+import android.widget.TextView;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
@@ -15,13 +16,17 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 
 import io.github.gamification.R;
+import io.github.gamification.config.UsuarioLogado;
 import io.github.gamification.databinding.ActivityMainBinding;
+import io.github.gamification.model.Usuario;
 
 public class MenuActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
-
+    private TextView tvNavViewNome;
+    private TextView tvNavViewEmail;
+    private Usuario usuario;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +53,15 @@ public class MenuActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
+        View headerView = navigationView.getHeaderView(0);
+        tvNavViewNome = headerView.findViewById(R.id.edtNavViewNome);
+        tvNavViewEmail = headerView.findViewById(R.id.edtNavViewEmail);
+        UsuarioLogado usuarioLogado = (UsuarioLogado) getApplicationContext();
+        usuario = usuarioLogado.getUsuario();
+
+        tvNavViewEmail.setText(usuario.getEmail());
+        tvNavViewNome.setText(usuario.getNome());
     }
 
     @Override

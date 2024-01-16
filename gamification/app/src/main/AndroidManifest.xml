@@ -12,7 +12,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Gamification"
+        android:theme="@style/Theme.Gamification.NoActionBar"
+        android:usesCleartextTraffic="true"
         android:name=".config.UsuarioLogado"
         tools:targetApi="31">
         <activity
