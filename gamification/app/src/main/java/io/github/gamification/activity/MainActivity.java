@@ -2,6 +2,7 @@ package io.github.gamification.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,6 +11,7 @@ import android.widget.Toast;
 
 import io.github.gamification.R;
 import io.github.gamification.config.RetrofitInstance;
+import io.github.gamification.config.UsuarioLogado;
 import io.github.gamification.model.Usuario;
 import io.github.gamification.service.UsuarioService;
 import retrofit2.Call;
@@ -37,7 +39,10 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(Call<Usuario> call, Response<Usuario> response) {
                         if (response != null){
-                            Toast.makeText(getApplicationContext(), "usuario de id  " + response.body().getId(), Toast.LENGTH_SHORT).show();
+                            UsuarioLogado usuarioLogado = (UsuarioLogado) getApplicationContext();
+                            usuarioLogado.setUsuario(response.body());
+                            Intent intent = new Intent(MainActivity.this, MenuActivity.class);
+                            startActivity(intent);
                         }
                     }
 
