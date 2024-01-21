@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.ApresentacaoActivity">
+
+    <TextView
+        android:id="@+id/textoApresentacao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Olá, este é o gamificando, bla bla bla bla bla bla"
+        android:textSize="18dp"
+        android:layout_marginTop="40dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteY="102dp" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="301dp"
+        android:layout_height="504dp"
+        app:srcCompat="@drawable/student_presentation"
+        app:layout_constraintTop_toBottomOf="@id/textoApresentacao"
+        tools:layout_editor_absoluteX="55dp"
+        tools:layout_editor_absoluteY="113dp" />
+
+    <Button
+        android:id="@+id/btContinuar"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:backgroundTint="#1E90FF"
+        android:text="CONTINUAR"
+        android:textSize="20dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteY="321dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>

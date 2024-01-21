@@ -21,6 +21,7 @@ import retrofit2.Response;
 public class MainActivity extends AppCompatActivity {
 
     private Button btLogin;
+    private Button btCadastre;
     private EditText edtEmail;
     private EditText edtSenha;
     private boolean teste = true;
@@ -34,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         edtEmail = findViewById(R.id.edtEmail);
         edtSenha.setText("flavio");
         edtEmail.setText("flavio@gmail.com");
+        btCadastre = findViewById(R.id.btCadastro);
         btLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -46,7 +48,10 @@ public class MainActivity extends AppCompatActivity {
                         if (response != null){
                             UsuarioLogado usuarioLogado = (UsuarioLogado) getApplicationContext();
                             usuarioLogado.setUsuario(response.body());
-                            Intent intent = new Intent(MainActivity.this, MenuActivity.class);
+
+                            Class activity = (response.body().isVisualizouPrimeiraPagina())
+                                    ? MenuActivity.class : ApresentacaoActivity.class;
+                            Intent intent = new Intent(MainActivity.this, activity);
                             startActivity(intent);
                         }
                     }
@@ -58,6 +63,14 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
+            }
+        });
+
+        btCadastre.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, CadastroActivity.class);
+                startActivity(intent);
             }
         });
     }
