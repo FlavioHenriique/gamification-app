@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="16dp"
+    android:layout_marginTop="16dp"
+    android:layout_marginEnd="16dp"
+    android:background="?android:attr/selectableItemBackground">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/TelaVendaPOSItensTvTotal"
+        app:layout_constraintEnd_toEndOf="@+id/tvProdutoEstoque"
+        app:layout_constraintStart_toEndOf="@+id/tvProdutoEstoque"
+        app:layout_constraintTop_toBottomOf="@+id/TelaVendaPOSItensTvTotal">
+
+        <TextView
+            android:id="@+id/insigniaItemTitulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="48dp"
+            android:text="nome produto"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:layout_editor_absoluteX="99dp" />
+
+        <TextView
+            android:id="@+id/insigniaItemPercentual"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginBottom="24dp"
+            android:text="5%"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            tools:layout_editor_absoluteX="358dp" />
+
+        <TextView
+            android:id="@+id/insigniaItemDescricao"
+            android:layout_width="230dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="nome produto"
+            android:textSize="17sp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/insigniaItemTitulo"
+            tools:layout_editor_absoluteX="99dp" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            tools:layout_editor_absoluteX="2dp"
+            tools:layout_editor_absoluteY="0dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            tools:srcCompat="@tools:sample/avatars" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

@@ -9,6 +9,8 @@ public class Insignia {
     private String imagem;
     private boolean conquistada;
 
+    private int percentualUsuarios;
+
     public Insignia(){}
 
     public long getId() {
@@ -49,5 +51,13 @@ public class Insignia {
 
     public void setConquistada(boolean conquistada) {
         this.conquistada = conquistada;
+    }
+
+    public int getPercentualUsuarios() {
+        return percentualUsuarios;
+    }
+
+    public void setPercentualUsuarios(int percentualUsuarios) {
+        this.percentualUsuarios = percentualUsuarios;
     }
 }

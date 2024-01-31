@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/nav_status"
-        android:name="io.github.gamification.ui.home.HomeFragment"
+        android:name="io.github.gamification.ui.status.StatusFragment"
         android:label="@string/menu_status"
         tools:layout="@layout/fragment_home" />
 
@@ -22,4 +22,10 @@
         android:name="io.github.gamification.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
+
+    <fragment
+        android:id="@+id/nav_insignias"
+        android:name="io.github.gamification.ui.insignias.InsigniaFragment"
+        android:label="Insígnias"
+        tools:layout="@layout/fragment_insignia" />
 </navigation>
