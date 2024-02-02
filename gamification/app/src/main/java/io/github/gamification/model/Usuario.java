@@ -20,6 +20,8 @@ public class Usuario implements Serializable {
 
     private List<Anotacao> anotacoes;
 
+    private long posicaoRanking;
+
     public Usuario(){
 
     }
@@ -102,5 +104,13 @@ public class Usuario implements Serializable {
 
     public void setAnotacoes(List<Anotacao> anotacoes) {
         this.anotacoes = anotacoes;
+    }
+
+    public long getPosicaoRanking() {
+        return posicaoRanking;
+    }
+
+    public void setPosicaoRanking(long posicaoRanking) {
+        this.posicaoRanking = posicaoRanking;
     }
 }

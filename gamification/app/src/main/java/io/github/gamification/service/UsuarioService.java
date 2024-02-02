@@ -1,5 +1,7 @@
 package io.github.gamification.service;
 
+import java.util.List;
+
 import io.github.gamification.model.Usuario;
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -14,4 +16,7 @@ public interface UsuarioService {
 
     @POST("/usuario")
     Call<Usuario> cadastro(@Body Usuario usuario);
+
+    @GET("/usuario/ranking")
+    Call<List<Usuario>> ranking();
 }
