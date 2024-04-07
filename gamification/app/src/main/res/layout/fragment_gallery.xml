@@ -9,14 +9,17 @@
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:srcCompat="@drawable/school"
-        app:layout_constraintBottom_toTopOf="@id/textView" />
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        app:layout_constraintBottom_toTopOf="@id/textView"
+        app:srcCompat="@drawable/mapa2"
+        tools:layout_editor_absoluteX="16dp" />
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:text="SELECIONE UM LUGAR PARA VISITAR"
+        android:text="SELECIONE UM LUGAR PARA ACESSAR"
         android:textAlignment="center"
         android:textSize="20dp"
         android:textStyle="bold"
@@ -25,4 +28,100 @@
         tools:layout_editor_absoluteX="155dp"
         app:layout_constraintBottom_toBottomOf="parent"
         tools:layout_editor_absoluteY="493dp" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabAlLucas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/map_icon"
+        android:padding="0dp"
+        android:scaleType="center"
+        android:src="@drawable/door"
+        android:tint="@color/white"
+        app:maxImageSize="40dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="360dp"
+        android:layout_marginLeft="20dp"
+        app:useCompatPadding="true" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:id="@+id/fabAlMarcela"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/map_icon"
+        android:padding="0dp"
+        android:scaleType="center"
+        android:src="@drawable/door"
+        android:tint="@color/white"
+        app:maxImageSize="40dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="360dp"
+        android:layout_marginLeft="200dp"
+        app:useCompatPadding="true" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/fabIA"
+        android:backgroundTint="@color/map_icon"
+        android:padding="0dp"
+        android:scaleType="center"
+        android:src="@drawable/door"
+        android:tint="@color/white"
+        app:maxImageSize="40dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="280dp"
+        android:layout_marginLeft="300dp"
+        app:useCompatPadding="true" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/fabAlTulio"
+        android:backgroundTint="@color/map_icon"
+        android:padding="0dp"
+        android:scaleType="center"
+        android:src="@drawable/door"
+        android:tint="@color/white"
+        app:maxImageSize="40dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="520dp"
+        android:layout_marginLeft="250dp"
+        app:useCompatPadding="true" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:id="@+id/fabProfFabiano"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/map_icon"
+        android:padding="0dp"
+        android:scaleType="center"
+        android:src="@drawable/door"
+        android:tint="@color/white"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="180dp"
+        android:layout_marginLeft="20dp"
+        app:maxImageSize="40dp"
+        app:useCompatPadding="true"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/fabProfJacqueline"
+        android:backgroundTint="@color/map_icon"
+        android:padding="0dp"
+        android:scaleType="center"
+        android:src="@drawable/door"
+        android:tint="@color/white"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="180dp"
+        android:layout_marginLeft="200dp"
+        app:maxImageSize="40dp"
+        app:useCompatPadding="true"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
