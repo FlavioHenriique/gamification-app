@@ -3,6 +3,7 @@ package io.github.gamification.activity;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -19,6 +20,7 @@ import java.io.IOException;
 import io.github.gamification.R;
 import io.github.gamification.config.RetrofitInstance;
 import io.github.gamification.config.UsuarioLogado;
+import io.github.gamification.dialog.DialogInsigniaFragment;
 import io.github.gamification.model.Usuario;
 import io.github.gamification.service.UsuarioService;
 import io.github.gamification.util.ShowDialog;
@@ -103,5 +105,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        ShowDialog.showDialogInsignia(this,   5,  "tasas", "desc");
     }
 }
