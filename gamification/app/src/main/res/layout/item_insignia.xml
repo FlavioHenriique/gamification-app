@@ -19,6 +19,21 @@
         app:layout_constraintStart_toEndOf="@+id/tvProdutoEstoque"
         app:layout_constraintTop_toBottomOf="@+id/TelaVendaPOSItensTvTotal">
 
+
+
+        <ImageView
+            android:src="@drawable/insignia_1"
+            android:id="@+id/insigniaImagem"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="50dp"
+            android:scaleType="centerInside"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/app_name" />
+
         <TextView
             android:id="@+id/insigniaItemTitulo"
             android:layout_width="wrap_content"
@@ -27,6 +42,8 @@
             android:text="nome produto"
             android:textSize="20sp"
             android:textStyle="bold"
+            app:layout_constraintLeft_toRightOf="@+id/insigniaImagem"
+            android:layout_marginLeft="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             tools:layout_editor_absoluteX="99dp" />
 
@@ -49,21 +66,13 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:text="nome produto"
-            android:textSize="17sp"
+            app:layout_constraintLeft_toRightOf="@+id/insigniaImagem"
+            android:textSize="13sp"
             android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@id/insigniaItemTitulo"
             tools:layout_editor_absoluteX="99dp" />
-
-        <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="75dp"
-            android:layout_height="75dp"
-            tools:layout_editor_absoluteX="2dp"
-            tools:layout_editor_absoluteY="0dp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            tools:srcCompat="@tools:sample/avatars" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.cardview.widget.CardView>

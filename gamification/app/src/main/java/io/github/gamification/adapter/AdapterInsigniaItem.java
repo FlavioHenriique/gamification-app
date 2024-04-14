@@ -6,6 +6,7 @@ import android.graphics.ColorSpace;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -61,6 +62,8 @@ public class AdapterInsigniaItem extends RecyclerView.Adapter<AdapterInsigniaIte
         TextView insigniaItemDescricao;
         TextView insigniaItemPercentual;
 
+        ImageView insigniaImagem;
+
         ConstraintLayout insigniaItemLayout;
 
         InsigniaItemViewHolder(@NonNull View itemView) {
@@ -69,6 +72,8 @@ public class AdapterInsigniaItem extends RecyclerView.Adapter<AdapterInsigniaIte
             insigniaItemDescricao = itemView.findViewById(R.id.insigniaItemDescricao);
             insigniaItemPercentual = itemView.findViewById(R.id.insigniaItemPercentual);
             insigniaItemLayout = itemView.findViewById(R.id.insigniaItemLayout);
+            insigniaImagem = itemView.findViewById(R.id.insigniaImagem);
+
         }
 
         void setData(Insignia item) {
@@ -77,6 +82,14 @@ public class AdapterInsigniaItem extends RecyclerView.Adapter<AdapterInsigniaIte
             insigniaItemPercentual.setText(item.getPercentualUsuarios() + "%");
             if (item.isConquistada())
                 insigniaItemLayout.setBackgroundColor(Color.parseColor("#DCDCDC"));
+
+            setInsignia(item.getId(), itemView);
+        }
+
+        private void setInsignia(long id, View view){
+            int imgId = view.getResources().getIdentifier(view.getContext().getPackageName()
+                    +":drawable/insignia_"+id , null, null);
+            insigniaImagem.setImageResource(imgId);
         }
 
         void setListners() {

@@ -105,7 +105,5 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-        ShowDialog.showDialogInsignia(this,   5,  "tasas", "desc");
     }
 }

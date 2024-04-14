@@ -46,12 +46,10 @@ public class DialogInsigniaFragment extends DialogFragment {
         insigniaImagem = view.findViewById(R.id.insigniaImagem);
         insigniaTitulo.setText(titulo);
 
-        String uri = "@drawable/myresource";
-
         int imgId = getResources().getIdentifier(getActivity().getApplicationContext().getPackageName()
                 +":drawable/insignia_"+id , null, null);
-
         insigniaImagem.setImageResource(imgId);
+
         builder.setView(view)
                 .setTitle("Conquista obtida!")
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
