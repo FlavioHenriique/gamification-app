@@ -3,7 +3,7 @@ package io.github.gamification.model;
 
 public class Insignia {
 
-    private long id;
+    private int  id;
     private String nome;
     private String descricao;
     private String imagem;
@@ -13,11 +13,11 @@ public class Insignia {
 
     public Insignia(){}
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 

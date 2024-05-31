@@ -39,6 +39,7 @@ public class ApresentacaoActivity extends AppCompatActivity {
                         if (response!= null){
                             Intent intent = new Intent(ApresentacaoActivity.this, MenuActivity.class);
                             startActivity(intent);
+                            finish();
                         }
                     }
 

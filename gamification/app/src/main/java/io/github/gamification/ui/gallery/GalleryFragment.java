@@ -18,6 +18,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import io.github.gamification.activity.InteracaoPersonagemActivity;
 import io.github.gamification.config.RetrofitInstance;
+import io.github.gamification.config.UsuarioLogado;
 import io.github.gamification.databinding.FragmentGalleryBinding;
 import io.github.gamification.model.Personagem;
 import io.github.gamification.model.Usuario;
@@ -39,6 +40,8 @@ public class GalleryFragment extends Fragment {
     private FloatingActionButton btIa;
 
     private FragmentGalleryBinding binding;
+    private Usuario usuario;
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -54,6 +57,9 @@ public class GalleryFragment extends Fragment {
         btMarcela = binding.fabAlMarcela;
         btTulio = binding.fabAlTulio;
         btIa = binding.fabIA;
+
+        UsuarioLogado usuarioLogado = (UsuarioLogado) getActivity().getApplicationContext();
+        usuario = usuarioLogado.getUsuario();
 
         btFabiano.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -105,27 +111,8 @@ public class GalleryFragment extends Fragment {
     }
 
     private void consultaDadosPersonagem(int idPersonagem){
-        ProgressDialog progressDialog = ShowDialog.showDialogIndeterminado(getActivity(), "Acessando ambiente do personagem...");
-        progressDialog.show();
-        Call<Personagem> find = RetrofitInstance.getRetrofitInstance()
-                .create(PersonagemService.class).findById(idPersonagem);
-        find.enqueue(new Callback<Personagem>() {
-            @Override
-            public void onResponse(Call<Personagem> call, Response<Personagem> response) {
-                progressDialog.dismiss();
-                if (response != null){
-                    Intent intent = new Intent(getActivity(), InteracaoPersonagemActivity.class);
-                    intent.putExtra("PERSONAGEM", response.body());
-                    startActivity(intent);
-                }
-            }
-
-            @Override
-            public void onFailure(Call<Personagem> call, Throwable t) {
-                progressDialog.dismiss();
-                System.out.println("erro: " + t.getMessage());
-                Toast.makeText(getActivity(), t.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
+        Intent intent = new Intent(getActivity(), InteracaoPersonagemActivity.class);
+        intent.putExtra("PERSONAGEM", idPersonagem);
+        startActivity(intent);
     }
 }

@@ -22,7 +22,7 @@ public class InsigniaViewModel extends AndroidViewModel {
 
     public LiveData<List<Insignia>> getInsignias(Context context) {
         UsuarioLogado usuarioLogado = (UsuarioLogado) context.getApplicationContext();
-        listaInsignia.setValue(usuarioLogado.getUsuario().getInsigniasConquistadas());
+        listaInsignia.setValue(usuarioLogado.getUsuario().getInsignias());
         return listaInsignia;
     }
 }

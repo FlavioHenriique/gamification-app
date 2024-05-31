@@ -13,7 +13,8 @@ import retrofit2.http.Query;
 public interface PersonagemService {
 
     @GET("/personagem")
-    Call<Personagem> findById(@Query("idPersonagem") int idPersonagem);
+    Call<Personagem> findById(@Query("idPersonagem") int idPersonagem,
+                              @Query("idUsuario") long idUsuario);
 
     @POST("/personagem")
     Call<RetornoInteracao> salvaRespostaQuestaoPersonagem(@Body SalvaQuestaoRequest request);

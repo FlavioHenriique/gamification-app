@@ -1,6 +1,7 @@
 package io.github.gamification.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.DividerItemDecoration;
@@ -8,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.View;
 
 import java.util.List;
 
@@ -22,6 +24,9 @@ public class InsigniaActivity extends AppCompatActivity {
     private AdapterInsigniaItem adapterInsigniaItem;
     private RecyclerView recyclerViewInsignia;
 
+    private Toolbar my_toolbar;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +40,20 @@ public class InsigniaActivity extends AppCompatActivity {
                 recyclerViewInsignia.getContext(), DividerItemDecoration.VERTICAL));
         viewModel = ViewModelProviders.of(this).get(InsigniaViewModel.class);
         atualizaInsignias();
+
+        my_toolbar = findViewById(R.id.my_toolbar);
+
+        setSupportActionBar(my_toolbar);
+        if (getSupportActionBar() != null){
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+        }
+        my_toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     private void atualizaInsignias() {

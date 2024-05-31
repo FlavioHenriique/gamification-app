@@ -9,6 +9,15 @@ public class Dialogo implements Serializable {
     private int imagem;
     private boolean ultima;
     private int idQuestao;
+    private String questao;
+
+    public String getQuestao() {
+        return questao;
+    }
+
+    public void setQuestao(String questao) {
+        this.questao = questao;
+    }
 
     public String getMensagem() {
         return mensagem;

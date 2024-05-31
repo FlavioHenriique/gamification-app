@@ -14,9 +14,9 @@ public class Usuario implements Serializable {
 
     private boolean visualizouPrimeiraPagina;
 
-    private List<Insignia> insigniasConquistadas;
+    private List<Insignia> insignias;
 
-    private List<Questao> questoesRespondidas;
+    private List<Resposta> respostas;
 
     private List<Anotacao> anotacoes;
 
@@ -82,20 +82,20 @@ public class Usuario implements Serializable {
         this.visualizouPrimeiraPagina = visualizouPrimeiraPagina;
     }
 
-    public List<Insignia> getInsigniasConquistadas() {
-        return insigniasConquistadas;
+    public List<Insignia> getInsignias() {
+        return insignias;
     }
 
-    public void setInsigniasConquistadas(List<Insignia> insigniasConquistadas) {
-        this.insigniasConquistadas = insigniasConquistadas;
+    public void setInsignias(List<Insignia> insignias) {
+        this.insignias = insignias;
     }
 
-    public List<Questao> getQuestoesRespondidas() {
-        return questoesRespondidas;
+    public List<Resposta> getRespostas() {
+        return respostas;
     }
 
-    public void setQuestoesRespondidas(List<Questao> questoesRespondidas) {
-        this.questoesRespondidas = questoesRespondidas;
+    public void setRespostas(List<Resposta> respostas) {
+        this.respostas = respostas;
     }
 
     public List<Anotacao> getAnotacoes() {

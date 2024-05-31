@@ -47,8 +47,8 @@ public class MainActivity extends AppCompatActivity {
         btLogin = findViewById(R.id.btLogin);
         edtSenha = findViewById(R.id.edtSenha);
         edtEmail = findViewById(R.id.edtEmail);
-        edtSenha.setText("flavio");
-        edtEmail.setText("flavio@gmail.com");
+        //edtSenha.setText("flavio");
+        //edtEmail.setText("flavio@gmail.com");
         btCadastre = findViewById(R.id.btCadastro);
         btLogin.setOnClickListener(new View.OnClickListener() {
             @Override

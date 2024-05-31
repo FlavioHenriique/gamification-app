@@ -7,6 +7,15 @@ public class Personagem implements Serializable {
     private int id;
     private String nome;
     private List<Dialogo> linhasDialogo;
+    private int ultimaResposta;
+
+    public int getUltimaResposta() {
+        return ultimaResposta;
+    }
+
+    public void setUltimaResposta(int ultimaResposta) {
+        this.ultimaResposta = ultimaResposta;
+    }
 
     public int getId() {
         return id;
