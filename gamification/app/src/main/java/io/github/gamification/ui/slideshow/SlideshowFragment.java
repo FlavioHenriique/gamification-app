@@ -9,13 +9,23 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import io.github.gamification.adapter.AdapterAnotacao;
+import io.github.gamification.config.UsuarioLogado;
 import io.github.gamification.databinding.FragmentSlideshowBinding;
+import io.github.gamification.model.Usuario;
 
 public class SlideshowFragment extends Fragment {
 
     private FragmentSlideshowBinding binding;
+    private RecyclerView recyclerViewAnotacoes;
 
+    private AdapterAnotacao adapterAnotacao;
+
+    private Usuario usuario;
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         SlideshowViewModel slideshowViewModel =
@@ -23,9 +33,22 @@ public class SlideshowFragment extends Fragment {
 
         binding = FragmentSlideshowBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
+        recyclerViewAnotacoes = binding.recyclerViewAnotacoes;
+        adapterAnotacao = new AdapterAnotacao(getActivity());
+        recyclerViewAnotacoes.setLayoutManager(new LinearLayoutManager(getActivity()));
+        recyclerViewAnotacoes.setAdapter(adapterAnotacao);
+        recyclerViewAnotacoes.addItemDecoration(new DividerItemDecoration(
+                recyclerViewAnotacoes.getContext(), DividerItemDecoration.VERTICAL));
 
-        final TextView textView = binding.textSlideshow;
-        slideshowViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        UsuarioLogado usuarioLogado = (UsuarioLogado) getActivity().getApplicationContext();
+        usuario = usuarioLogado.getUsuario();
+
+        adapterAnotacao.setListaItens(usuarioLogado.getUsuario().getAnotacoes());
+        if (usuarioLogado.getUsuario().getAnotacoes().isEmpty()){
+            final TextView textView = binding.textSlideshow;
+            slideshowViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        }
+
         return root;
     }
 

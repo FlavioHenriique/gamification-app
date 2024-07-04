@@ -10,7 +10,7 @@
         android:id="@+id/textoApresentacao"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Olá, jovem programador! Eu sou o CodeMaster, seu guia no Gamificando, onde aprender programação se torna uma aventura divertida! Prepare-se para enfrentar desafios, ganhar pontos e se tornar um mestre do código! Vamos começar essa jornada juntos?"
+        android:text="Olá, jovem programador! Eu sou o Júlio, seu guia no Gamificando, onde aprender programação se torna uma aventura divertida! Prepare-se para enfrentar desafios, ganhar pontos e se tornar um mestre do código! Vamos começar essa jornada juntos?"
         android:textSize="18dp"
         android:layout_marginTop="40dp"
         android:textStyle="bold"

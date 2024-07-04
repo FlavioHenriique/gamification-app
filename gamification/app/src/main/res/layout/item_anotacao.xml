@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="16dp"
+    android:layout_marginTop="16dp"
+    android:layout_marginEnd="16dp"
+    android:background="@color/padrao">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/insigniaItemLayout"
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:background="#ADD8E6"
+        app:layout_constraintBottom_toBottomOf="@+id/TelaVendaPOSItensTvTotal"
+        app:layout_constraintEnd_toEndOf="@+id/tvProdutoEstoque"
+        app:layout_constraintStart_toEndOf="@+id/tvProdutoEstoque"
+        app:layout_constraintTop_toBottomOf="@+id/TelaVendaPOSItensTvTotal">
+
+
+        <TextView
+            android:id="@+id/anotacoesNome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="48dp"
+            android:text="Titulo"
+            android:textAlignment="center"
+            android:textSize="22dp"
+            android:textStyle="bold"
+            android:backgroundTint="@color/padrao"
+            tools:layout_editor_absoluteX="85dp" />
+
+        <TextView
+            android:id="@+id/anotacoesTexto"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="16dp"
+            android:text="texto anotacao"
+            android:textSize="18dp"
+            android:textColor="@color/black"
+            android:textAlignment="center"
+            app:layout_constraintTop_toBottomOf="@id/anotacoesNome"
+            tools:layout_editor_absoluteX="85dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

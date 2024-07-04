@@ -53,6 +53,8 @@ public class InteracaoPersonagemActivity extends AppCompatActivity {
     private List<Long> listaPersonagens = null;
     private int codPersonagem;
 
+    private UsuarioLogado usuarioLogado;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,7 +72,7 @@ public class InteracaoPersonagemActivity extends AppCompatActivity {
             listaPersonagens = (List<Long>) getIntent().getSerializableExtra("LISTA_PERSONAGENS");
         }
 
-        UsuarioLogado usuarioLogado = (UsuarioLogado) getApplicationContext();
+        usuarioLogado = (UsuarioLogado) getApplicationContext();
         usuario = usuarioLogado.getUsuario();
 
         my_toolbar = findViewById(R.id.my_toolbar);
@@ -187,15 +189,19 @@ public class InteracaoPersonagemActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<RetornoInteracao> call, Response<RetornoInteracao> response) {
                 dialog.dismiss();
-                if (response != null){
+                if (response.body() != null){
                     if (response.body().getInsigniasLiberadas() != null && !response.body().getInsigniasLiberadas().isEmpty()){
                         response.body().getInsigniasLiberadas().forEach(i->
                                 ShowDialog.showDialogInsignia(InteracaoPersonagemActivity.this,
                                         i.getId(), i.getNome(), i.getDescricao()));
                     }
+                    if (response.body().getUsuario() != null){
+                        usuarioLogado.setUsuario(response.body().getUsuario());
+                    }
                 }else{
                     Toast.makeText(getApplicationContext(), response.message(), Toast.LENGTH_SHORT).show();
                 }
+
             }
 
             @Override

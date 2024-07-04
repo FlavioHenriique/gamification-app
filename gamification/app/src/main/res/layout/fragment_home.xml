@@ -32,6 +32,7 @@
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:text="Insígnias"
+        android:textColor="@color/padrao"
         android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@id/layoutteste"
         tools:layout_editor_absoluteX="32dp" />

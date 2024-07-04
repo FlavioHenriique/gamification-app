@@ -19,4 +19,7 @@ public interface UsuarioService {
 
     @GET("/usuario/ranking")
     Call<List<Usuario>> ranking();
+
+    @GET("/usuario")
+    Call<Usuario> find(@Query("id") long id);
 }

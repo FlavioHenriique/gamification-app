@@ -8,6 +8,16 @@ public class RetornoInteracao implements Serializable {
     private List<Insignia> insigniasLiberadas = new ArrayList<>();
     private List<Anotacao> anotacoesLiberadas = new ArrayList<>();
 
+    private Usuario usuario;
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
     public List<Insignia> getInsigniasLiberadas() {
         return insigniasLiberadas;
     }

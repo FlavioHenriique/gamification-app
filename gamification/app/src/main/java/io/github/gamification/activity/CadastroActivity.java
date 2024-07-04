@@ -1,6 +1,7 @@
 package io.github.gamification.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.os.Bundle;
 import android.view.View;
@@ -33,6 +34,16 @@ public class CadastroActivity extends AppCompatActivity {
         edtSenha = findViewById(R.id.edtSenha);
         edtEmail = findViewById(R.id.edtEmail);
         btCadastrar = findViewById(R.id.btCadastro);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         btCadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,4 +85,5 @@ public class CadastroActivity extends AppCompatActivity {
             }
         });
     }
+
 }

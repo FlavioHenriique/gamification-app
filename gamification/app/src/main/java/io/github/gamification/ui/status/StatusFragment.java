@@ -67,9 +67,9 @@ public class StatusFragment extends Fragment {
                         .collect(Collectors.toList()).size();
 
         progressBar.setProgress((qtdConquistadas * 100)/qtdInsignias);
-        tvInsignias.setText("Insígnias (" + qtdConquistadas + "/" + qtdInsignias + ")");
+        tvInsignias.setText("Insígnias (" + qtdConquistadas + "/" + qtdInsignias + ") - clique para ver todas");
         tvPontuacao.setText(usuario.getPontuacao() + "");
-        tvPosicao.setText(usuario.getPosicaoRanking() + "");
+        tvPosicao.setText(usuario.getPosicaoRanking() + "º");
         tvInsignias.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
