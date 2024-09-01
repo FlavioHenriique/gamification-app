@@ -59,12 +59,9 @@ public class AdapterAnotacao extends RecyclerView.Adapter<AdapterAnotacao.Anotac
 
     public class AnotacaoViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView anotacoesNome;
-        TextView anotacoesTexto;
         AnotacaoViewHolder(@NonNull View itemView) {
             super(itemView);
             anotacoesNome = itemView.findViewById(R.id.anotacoesNome);
-            anotacoesTexto = itemView.findViewById(R.id.anotacoesTexto);
-
 
         }
 
@@ -73,7 +70,6 @@ public class AdapterAnotacao extends RecyclerView.Adapter<AdapterAnotacao.Anotac
             String texto = (item.getTexto().length() > 100) ?
                     item.getTexto().substring(0, 100).concat("..."):
                     item.getTexto();
-            anotacoesTexto.setText(texto);
         }
 
         void setListners() {

@@ -24,11 +24,11 @@ public class ShowDialog {
         return dialogIndeterminado;
     }
 
-    public static void showDialogInsignia(Activity activity, int id, String titulo, String descricao) {
+    public static void showDialogInsignia(Activity activity, String name, String titulo, String descricao) {
         Bundle bundle = new Bundle();
-        bundle.putString("INSIGNIA_TITULO", titulo);
-        bundle.putInt("INSIGNIA_ID", id);
-        bundle.putString("INSIGNIA_DESCRICAO", descricao);
+        bundle.putString("TITULO", titulo);
+        bundle.putString("IMG_NAME", name);
+        bundle.putString("DESCRICAO", descricao);
         DialogInsigniaFragment fragment = new DialogInsigniaFragment();
         fragment.setArguments(bundle);
         fragment.show(activity.getFragmentManager(), "INSIGNIA");

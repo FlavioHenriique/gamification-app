@@ -1,5 +1,6 @@
 package io.github.gamification.activity;
 
+import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -129,6 +130,9 @@ public class InteracaoPersonagemActivity extends AppCompatActivity {
                 int imgId = getResources().getIdentifier(getApplicationContext().getPackageName()
                         +":drawable/" + dialogo.getQuestao(), null, null);
                 imgPersonagemEQuestao.setImageResource(imgId);
+                if (imgId == 0){
+                    atualizaFotoPersonagem();
+                }
             }else{
                 atualizaFotoPersonagem();
             }
@@ -140,9 +144,13 @@ public class InteracaoPersonagemActivity extends AppCompatActivity {
                 radioGroupAlternativas.addView(radioButton);
             });
             radioGroupAlternativas.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+
                 @Override
                 public void onCheckedChanged(RadioGroup group, int checkedId) {
                     int idQuestao = personagem.getLinhasDialogo().get(dialogoAtual).getIdQuestao();
+                    if (checkedId > 0){
+                        checkedId --;
+                    }
                     Alternativa alternativa = personagem.getLinhasDialogo().get(dialogoAtual)
                             .getOpcoesResposta().get(checkedId);
 
@@ -181,7 +189,7 @@ public class InteracaoPersonagemActivity extends AppCompatActivity {
     }
 
     private void salvaRespostaDaQuestao(SalvaQuestaoRequest request){
-        ProgressDialog dialog= ShowDialog.showDialogIndeterminado(this, "Salvando questão...");
+        ProgressDialog dialog= ShowDialog.showDialogIndeterminado(this, "Salvando sua resposta...");
         dialog.show();
         Call<RetornoInteracao> salvaQuestao = RetrofitInstance.getRetrofitInstance()
                 .create(PersonagemService.class).salvaRespostaQuestaoPersonagem(request);
@@ -193,10 +201,17 @@ public class InteracaoPersonagemActivity extends AppCompatActivity {
                     if (response.body().getInsigniasLiberadas() != null && !response.body().getInsigniasLiberadas().isEmpty()){
                         response.body().getInsigniasLiberadas().forEach(i->
                                 ShowDialog.showDialogInsignia(InteracaoPersonagemActivity.this,
-                                        i.getId(), i.getNome(), i.getDescricao()));
+                                        "insignia_" + i.getId(), i.getNome(), i.getDescricao()));
                     }
                     if (response.body().getUsuario() != null){
                         usuarioLogado.setUsuario(response.body().getUsuario());
+                    }
+                    if (request.isCorreto()){
+                        ShowDialog.showDialogInsignia(InteracaoPersonagemActivity.this,
+                                "check", "Resposta correta!", "");
+                    }else {
+                        ShowDialog.showDialogInsignia(InteracaoPersonagemActivity.this,
+                                "error", "Ops, resposta incorreta...", "");
                     }
                 }else{
                     Toast.makeText(getApplicationContext(), response.message(), Toast.LENGTH_SHORT).show();

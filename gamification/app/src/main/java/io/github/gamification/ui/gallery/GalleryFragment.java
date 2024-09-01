@@ -14,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import io.github.gamification.activity.InteracaoPersonagemActivity;
@@ -32,12 +33,12 @@ import retrofit2.Response;
 
 public class GalleryFragment extends Fragment {
 
-    private FloatingActionButton btFabiano;
-    private FloatingActionButton btJacqueline;
-    private FloatingActionButton btMarcela;
-    private FloatingActionButton btTulio;
-    private FloatingActionButton btLucas;
-    private FloatingActionButton btIa;
+    private ExtendedFloatingActionButton btFabiano;
+    private ExtendedFloatingActionButton btJacqueline;
+    private ExtendedFloatingActionButton btMarcela;
+    private ExtendedFloatingActionButton btTulio;
+    private ExtendedFloatingActionButton btLucas;
+    private ExtendedFloatingActionButton btIa;
 
     private FragmentGalleryBinding binding;
     private Usuario usuario;

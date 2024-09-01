@@ -9,6 +9,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+
 import io.github.gamification.R;
 import io.github.gamification.config.RetrofitInstance;
 import io.github.gamification.model.Usuario;
@@ -48,6 +53,11 @@ public class CadastroActivity extends AppCompatActivity {
         btCadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (!edtEmail.getText().toString().contains("@")){
+                    Toast.makeText(getApplicationContext(), "Email inválido!",
+                            Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 Usuario usuario = new Usuario();
                 usuario.setEmail(edtEmail.getText().toString());
                 usuario.setNome(edtNome.getText().toString());
@@ -68,7 +78,17 @@ public class CadastroActivity extends AppCompatActivity {
                 cadastro.enqueue(new Callback<Usuario>() {
                     @Override
                     public void onResponse(Call<Usuario> call, Response<Usuario> response) {
-                        if (response != null){
+                        if (response.errorBody() != null) {
+                            try {
+                                JSONObject jObjError = new JSONObject(response.errorBody().string());
+                                Toast.makeText(getApplicationContext(), jObjError.get("message").toString(),
+                                        Toast.LENGTH_SHORT).show();
+                            } catch (JSONException e) {
+                                throw new RuntimeException(e);
+                            } catch (IOException e) {
+                                throw new RuntimeException(e);
+                            }
+                        }else{
                             Toast.makeText(getApplicationContext(), "Usuário cadastrado",
                                     Toast.LENGTH_SHORT).show();
                             setResult(RESULT_OK);

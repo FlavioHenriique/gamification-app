@@ -1,5 +1,6 @@
 package io.github.gamification.ui.slideshow;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import io.github.gamification.activity.AnotacaoActivity;
 import io.github.gamification.adapter.AdapterAnotacao;
 import io.github.gamification.config.UsuarioLogado;
 import io.github.gamification.databinding.FragmentSlideshowBinding;
@@ -48,6 +50,19 @@ public class SlideshowFragment extends Fragment {
             final TextView textView = binding.textSlideshow;
             slideshowViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         }
+        adapterAnotacao.onBind = (viewHolder, position) ->{
+            viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(getActivity(), AnotacaoActivity.class);
+                    intent.putExtra("TITULO", adapterAnotacao.getListaItens().get(position).getTitulo());
+                    intent.putExtra("TEXTO", adapterAnotacao.getListaItens().get(position).getTexto());
+                    startActivity(intent);
+                }
+            });
+        };
+
+
 
         return root;
     }

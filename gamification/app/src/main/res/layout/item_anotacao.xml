@@ -12,7 +12,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/insigniaItemLayout"
         android:layout_width="match_parent"
-        android:layout_height="160dp"
+        android:layout_height="100dp"
         android:background="#ADD8E6"
         app:layout_constraintBottom_toBottomOf="@+id/TelaVendaPOSItensTvTotal"
         app:layout_constraintEnd_toEndOf="@+id/tvProdutoEstoque"
@@ -37,12 +37,12 @@
         <TextView
             android:id="@+id/anotacoesTexto"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="50dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginBottom="16dp"
-            android:text="texto anotacao"
+            android:text="Clique para acessar a anotação..."
             android:textSize="18dp"
             android:textColor="@color/black"
             android:textAlignment="center"

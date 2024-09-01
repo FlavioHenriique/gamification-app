@@ -22,7 +22,7 @@ public class DialogInsigniaFragment extends DialogFragment {
 
     private String descricao;
     private String titulo;
-    private int id;
+    private String imgName;
     private TextView insigniaDescricao;
     private ImageView insigniaImagem;
     private TextView insigniaTitulo;
@@ -30,9 +30,9 @@ public class DialogInsigniaFragment extends DialogFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        id = getArguments().getInt("INSIGNIA_ID");
-        descricao = getArguments().getString("INSIGNIA_DESCRICAO");
-        titulo = getArguments().getString("INSIGNIA_TITULO");
+        imgName = getArguments().getString("IMG_NAME");
+        descricao = getArguments().getString("DESCRICAO");
+        titulo = getArguments().getString("TITULO");
     }
 
     @Override
@@ -47,11 +47,11 @@ public class DialogInsigniaFragment extends DialogFragment {
         insigniaTitulo.setText(titulo);
 
         int imgId = getResources().getIdentifier(getActivity().getApplicationContext().getPackageName()
-                +":drawable/insignia_"+id , null, null);
+                +":drawable/" + imgName , null, null);
         insigniaImagem.setImageResource(imgId);
 
         builder.setView(view)
-                .setTitle("Conquista obtida!")
+                .setTitle("")
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int id) {

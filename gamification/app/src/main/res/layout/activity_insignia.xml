@@ -5,37 +5,56 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activity.InsigniaActivity">
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/my_toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
-        android:elevation="4dp"
-        app:title="Lista de insígnias"
-        app:titleTextColor="@color/white"
+
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:title="Lista de insígnias"
+        app:titleTextColor="@color/white" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewInsignias"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="90dp"
         android:visibility="visible"
         app:layout_constraintBottom_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/my_toolbar"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTitulo"
         app:layout_constraintVertical_bias="0.072"></androidx.recyclerview.widget.RecyclerView>
 
     <TextView
-        android:id="@+id/textViewTitulo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAlignment="textEnd"
+        android:id="@+id/tvTituloInsignia"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_marginTop="4dp"
+        android:text="Nome da insígnia"
+        android:textAlignment="textStart"
         android:textColor="@color/black"
         android:textStyle="bold"
-        android:text="Percentual de jogadores" />
+        app:flow_horizontalAlign="end"
+        app:layout_constraintTop_toBottomOf="@id/my_toolbar"
+        />
+    <TextView
+        android:id="@+id/textViewTitulo"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="4dp"
+        android:text="Percentual de usuários com esta insígnia"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:layout_marginLeft="170dp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toRightOf="@id/tvTituloInsignia"
+        app:flow_horizontalAlign="end"
+        app:layout_constraintTop_toBottomOf="@id/my_toolbar"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

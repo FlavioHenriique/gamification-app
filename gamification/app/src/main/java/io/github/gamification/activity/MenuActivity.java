@@ -55,8 +55,10 @@ public class MenuActivity extends AppCompatActivity {
         UsuarioLogado usuarioLogado = (UsuarioLogado) getApplicationContext();
         usuario = usuarioLogado.getUsuario();
 
-        tvNavViewEmail.setText(usuario.getEmail());
-        tvNavViewNome.setText(usuario.getNome());
+        if (usuario != null){
+            tvNavViewEmail.setText(usuario.getEmail());
+            tvNavViewNome.setText(usuario.getNome());
+        }
     }
 
     @Override

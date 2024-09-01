@@ -60,16 +60,22 @@ public class StatusFragment extends Fragment {
         tvPontuacao = binding.tvPontuacaoValor;
         tvPosicao = binding.tvPosicaoValor;
 
-        int qtdInsignias = usuario.getInsignias().size();
-        int qtdConquistadas = usuario.getInsignias()
-                .stream()
-                .filter(i-> i.isConquistada())
-                        .collect(Collectors.toList()).size();
+        if (usuario != null){
+            int qtdInsignias = usuario.getInsignias().size();
+            int qtdConquistadas = usuario.getInsignias()
+                    .stream()
+                    .filter(i-> i.isConquistada())
+                    .collect(Collectors.toList()).size();
 
-        progressBar.setProgress((qtdConquistadas * 100)/qtdInsignias);
-        tvInsignias.setText("Insígnias (" + qtdConquistadas + "/" + qtdInsignias + ") - clique para ver todas");
-        tvPontuacao.setText(usuario.getPontuacao() + "");
-        tvPosicao.setText(usuario.getPosicaoRanking() + "º");
+
+            if (qtdInsignias > 0) {
+                progressBar.setProgress((qtdConquistadas * 100)/qtdInsignias);
+            }
+            tvInsignias.setText("Insígnias (" + qtdConquistadas + "/" + qtdInsignias + ") - clique para ver todas");
+            tvPontuacao.setText(usuario.getPontuacao() + "");
+            tvPosicao.setText(usuario.getPosicaoRanking() + "º");
+        }
+
         tvInsignias.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

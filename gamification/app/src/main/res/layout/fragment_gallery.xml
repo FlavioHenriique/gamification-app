@@ -13,7 +13,7 @@
         android:layout_marginBottom="4dp"
         app:layout_constraintBottom_toTopOf="@id/textView"
         app:srcCompat="@drawable/mapa2"
-        tools:layout_editor_absoluteX="16dp" />
+        tools:layout_editor_absoluteX="0dp" />
 
     <TextView
         android:id="@+id/textView"
@@ -29,11 +29,13 @@
         app:layout_constraintBottom_toBottomOf="parent"
         tools:layout_editor_absoluteY="493dp" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/fabAlLucas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/map_icon"
+        app:icon="@drawable/door"
+        android:text="Lucas"
         android:padding="0dp"
         android:scaleType="center"
         android:src="@drawable/door"
@@ -45,12 +47,14 @@
         android:layout_marginLeft="20dp"
         app:useCompatPadding="true" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:layout_width="wrap_content"
         android:id="@+id/fabAlMarcela"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/map_icon"
         android:padding="0dp"
+        app:icon="@drawable/door"
+        android:text="Marcela"
         android:scaleType="center"
         android:src="@drawable/door"
         android:tint="@color/white"
@@ -61,11 +65,13 @@
         android:layout_marginLeft="200dp"
         app:useCompatPadding="true" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/fabIA"
         android:backgroundTint="@color/map_icon"
+        app:icon="@drawable/door"
+        android:text="IAN"
         android:padding="0dp"
         android:scaleType="center"
         android:src="@drawable/door"
@@ -74,15 +80,17 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginTop="280dp"
-        android:layout_marginLeft="300dp"
+        android:layout_marginLeft="280dp"
         app:useCompatPadding="true" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/fabAlTulio"
         android:backgroundTint="@color/map_icon"
         android:padding="0dp"
+        app:icon="@drawable/door"
+        android:text="Tulio"
         android:scaleType="center"
         android:src="@drawable/door"
         android:tint="@color/white"
@@ -93,9 +101,11 @@
         android:layout_marginLeft="250dp"
         app:useCompatPadding="true" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:layout_width="wrap_content"
         android:id="@+id/fabProfFabiano"
+        app:icon="@drawable/door"
+        android:text="Fabiano"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/map_icon"
         android:padding="0dp"
@@ -109,11 +119,13 @@
         app:maxImageSize="40dp"
         app:useCompatPadding="true"/>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/fabProfJacqueline"
         android:backgroundTint="@color/map_icon"
+        app:icon="@drawable/door"
+        android:text="Jacqueline"
         android:padding="0dp"
         android:scaleType="center"
         android:src="@drawable/door"
